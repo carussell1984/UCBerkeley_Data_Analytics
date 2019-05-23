@@ -1,0 +1,24 @@
+
+Sub worksheetsummary()
+    'adding a new sheet
+    With ThisWorkbook
+    .Sheets.Add(After:=.Sheets(.Sheets.Count)).Name = "Summarysheet"
+    End With
+    
+    Dim Year As String
+    
+    'Formating the excel, bolding the top line & correct the column width
+    Range("A1").Value = "Tickerstock"
+    Range("B1").Value = "Sum of Stock"
+    Range("A1:B1").Font.FontStyle = "Bold"
+    Range("A1:B1").EntireColumn.AutoFit
+     
+        
+    Range("F1").Value = "Year of Stock"
+    Range("F1").Font.FontStyle = "Bold"
+    Range("F6").EntireColumn.AutoFit
+    
+    'will be the place to enter the year for which the for loop will run to look for TickerStocks byear
+    Range("F7").Value = Year
+    
+End Sub
