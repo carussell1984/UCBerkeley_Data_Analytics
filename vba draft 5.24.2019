@@ -1,0 +1,38 @@
+Dim wb As Workbook
+
+
+
+For Each ws In wb
+
+    'format tickerstock to new area
+    Range("A1").Select
+        Application.CutCopyMode = False
+        Application.CutCopyMode = False
+        Range("A1:A705714").AdvancedFilter Action:=xlFilterCopy, CopyToRange:=Range _
+            ("J1"), Unique:=True
+
+    'put the other headers inplace for easy & hard homework solutions
+    Range("J1").Value = "Tickerstock_Symbol"
+    Range("K1").Value = "Change_in_price_by_year"
+    Range("L1").Value = "%change_in_price_Year"
+    Range("M1").Value = "Sum_stock_volume"
+    
+    
+    'format the ranges for
+    Range("J1:M1").Font.FontStyle = "Bold"
+    Range("J1:M1").EntireColumn.AutoFit
+    
+    
+
+    
+        
+     
+        
+Next ws
+
+    
+
+End Sub
+
+
+
