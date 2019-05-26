@@ -1,0 +1,71 @@
+Sub summarystock()
+
+Dim wb As Workbook
+
+    For Each ws In wb
+
+
+    'format tickerstock to new area
+    Range("A1").Select
+        Application.CutCopyMode = False
+        Application.CutCopyMode = False
+        ws.Range("A1:A705714").AdvancedFilter Action:=xlFilterCopy, CopyToRange:=Range _
+            ("J1"), Unique:=True
+
+    'delare all the variables
+    Dim tickerstocks As String
+    Dim tickerstocksummary As String
+    Dim volume As Long
+    Dim sumStockVolume As Double
+    
+
+    'put the other headers inplace for easy & hard homework solutions
+    ws.Range("J1").Value = "Tickerstock_Symbol"
+    ws.Range("K1").Value = "Sum_stock_volume"
+    
+
+    'format the ranges for headers
+    ws.Range("J1:K1").Font.FontStyle = "Bold"
+    ws.Range("J1:K1").EntireColumn.AutoFi
+    
+    
+    
+    'insert a way to find the last cell in dynamic columns
+    Dim lastrow As Double
+    
+    lastrow = ws.Cells(Rows.Count, 1).End(xlUp)
+
+    'prepare to loop through the cells to find the sum of each tickerstock
+    
+    Dim tickerstockvolume As Double
+    tickerstockvolume = 0
+    
+    'row number for looping through cells
+    Dim i As Long
+    
+      
+    'set the equation for the sumtotal of tickerstocks
+    
+         For i = 2 To lastrow
+    
+             If ws.Cells(i, 1).Value = ws.Cells(i + 1, 1).Value Then
+            
+                tickerstockvolume = tickerstockvolume + ws.Cells(i, 7).Value
+                
+                If ws.Cells(i, 10).Value = ws.Cells(i, 1).Value Then
+            
+                    ws.Cells(i, 11).Value = tickerstockvolume
+                    
+                    tickerstockvolume
+        
+    
+                End If
+            
+            End If
+    
+        Next i
+    
+    Next ws
+
+
+End Sub
