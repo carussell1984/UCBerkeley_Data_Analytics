@@ -16,6 +16,7 @@ Sub summarystock()
     For Each ws In Worksheets
 
 
+    ws.Activate
 
 
 
@@ -51,7 +52,7 @@ Sub summarystock()
 
 
 
-        'prepare to loop through row in column 1 to fins name of each tickerName and then print to "F2"
+        'prepare to loop through row in column 1 to fins name of each tickerName and then print to "J2"
 
          For i = 2 To lastrow
 
@@ -62,13 +63,13 @@ Sub summarystock()
              
                tickerName = ws.Cells(i, 1).Value
     
-               ws.Cells(i, 9).Value = tickerName
+               ws.Cells(i, 10).Value = tickerName
                
                ElseIf ws.Cells(i, 1).Value <> ws.Cells(i + 1, 1).Value Then
                
                newtickerName = ws.Cells(i + 1, 1).Value
     
-               ws.Cells(i + 1, 9).Value = newtickerName
+               ws.Cells(i + 1, 10).Value = newtickerName
 
                 
 
